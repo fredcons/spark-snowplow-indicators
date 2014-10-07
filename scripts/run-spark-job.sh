@@ -55,6 +55,8 @@ jarfile=${user_jars}/${1##*/}
 if [[ ! -f ${jarfile} ]]; then
   sudo mkdir -p ${user_jars}
   sudo chown -R hadoop:hadoop ${user_jars}
+else
+  rm -f ${jarfile}
 fi
 
 hadoop fs -get ${1} ${user_jars}/
